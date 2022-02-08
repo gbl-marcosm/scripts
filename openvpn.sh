@@ -11,7 +11,7 @@ if [ ${INSTALL_CHECK} == "installed" ] && [ -f "/usr/bin/openvpn3" ]; then
 else
     echo "NOT INSTALLED!"
     echo -n "    - Installing OpenVPN 3 Client... "
-    apt -s update  \
+    apt update  \
     && apt -s install -y apt-transport-https wget &>/dev/null \
     && wget https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub &>/dev/null \
     && apt-key add openvpn-repo-pkg-key.pub &>/dev/null \
