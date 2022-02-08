@@ -20,6 +20,7 @@ else
     && apt update &>/dev/null \
     && apt install -y openvpn3 &>/dev/null \
     && echo "DONE!"
+    echo " "
 fi
 
 echo -n "2/2 - Applying fix for OpenVPN DNS service... "
