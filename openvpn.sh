@@ -18,13 +18,8 @@ else
     && rm -f openvpn-repo-pkg-key.pub 1>/dev/null \
     && wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-${UBUNTU_CODENAME}.list 1>/dev/null \
     && apt update 1>/dev/null \
-    && apt install -y openvpn3 1>/dev/null
-    if [ ${INSTALL_CHECK} == "installed" ] && [ -f "/usr/bin/openvpn3" ]; then
-        echo "DONE!"
-    else
-        echo "ERROR!"
-        exit 1;
-    fi
+    && apt install -y openvpn3 1>/dev/null \
+    && echo "DONE!" || echo "ERROR!" && exit 1;
 fi
 
 echo -n "2/2 - Applying fix for OpenVPN DNS service... "
