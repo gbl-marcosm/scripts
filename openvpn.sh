@@ -19,7 +19,7 @@ else
     && wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-${UBUNTU_CODENAME}.list &>/dev/null \
     && apt update &>/dev/null \
     && apt install -y openvpn3 &>/dev/null \
-    && echo "DONE!" || echo "ERROR!" && exit 1;
+    && echo "DONE!" || echo "ERROR!"
 fi
 
 echo -n "2/2 - Applying fix for OpenVPN DNS service... "
