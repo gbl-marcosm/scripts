@@ -8,6 +8,7 @@ echo -n "1/2 - Checking if OpenVPN client is installed... "
 INSTALL_CHECK=$(apt -qq list openvpn3 2>/dev/null | grep "openvpn3/$(lsb_release --codename | awk -F ' ' '{print $2}')" | awk -F '[' '{print $2}' | tr -d ']')
 if [ ${INSTALL_CHECK} == "installed" ] && [ -f "/usr/bin/openvpn3" ]; then
     echo "INSTALLED!"
+    echo " "
 else
     echo "NOT INSTALLED!"
     echo -n "    - Installing OpenVPN 3 Client... "
