@@ -11,18 +11,19 @@ if [ ${INSTALL_CHECK} == "installed" ] && [ -f "/usr/bin/openvpn3" ]; then
 else
     echo "NOT INSTALLED!"
     echo -n "    - Installing OpenVPN 3 Client... "
-    apt update &>/dev/null \
-    && apt install -y apt-transport-https wget &>/dev/null \
-    && wget https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub &>/dev/null \
-    && apt-key add openvpn-repo-pkg-key.pub &>/dev/null \
-    && rm -f openvpn-repo-pkg-key.pub &>/dev/null \
-    && wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-${UBUNTU_CODENAME}.list &>/dev/null \
-    && apt update &>/dev/null \
-    && apt install -y openvpn3 &>/dev/null
+    apt update 1>/dev/null \
+    && apt install -y apt-transport-https wget 1>/dev/null \
+    && wget https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub 1>/dev/null \
+    && apt-key add openvpn-repo-pkg-key.pub 1>/dev/null \
+    && rm -f openvpn-repo-pkg-key.pub 1>/dev/null \
+    && wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-${UBUNTU_CODENAME}.list 1>/dev/null \
+    && apt update 1>/dev/null \
+    && apt install -y openvpn3 1>/dev/null
     if [ ${INSTALL_CHECK} == "installed" ] && [ -f "/usr/bin/openvpn3" ]; then
         echo "DONE!"
     else
         echo "ERROR!"
+        exit 1;
     fi
 fi
 
