@@ -22,7 +22,7 @@ else
     && echo "DONE!"
 fi
 
-echo -n "# Applying fix for Linux clients DNS service... "
+echo -n "# Applying fix for OpenVPN DNS service... "
 sed -i 's/--systemd-resolved/--resolv-conf \/etc\/resolv.conf/g' /usr/share/dbus-1/system-services/net.openvpn.v3.netcfg.service \
 && echo "DONE!"
 
